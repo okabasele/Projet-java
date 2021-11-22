@@ -10,7 +10,7 @@ public class Espace {
 
 	public Espace() {
 		super();
-		Utilitaires.fillHashMap(Utilitaires.hmapPlanets,"planetes.properties");
+		Utilitaires.fillHashMapPlanets();;
 		initArrayListPlanets();
 	}
 	

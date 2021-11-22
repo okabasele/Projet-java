@@ -11,12 +11,12 @@ public class Utilitaires {
 	//static HashMap<String,Integer> hmapShips = new HashMap<String,Integer>();
 	public static HashMap<String,String> hmapPlanets = new HashMap<String,String>();
 	
-	public static void fillHashMap(HashMap<String,String> hmap, String filePath) {
-		try (Scanner s = new Scanner(new File(filePath))) {
+	public static void fillHashMapPlanets() {
+		try (Scanner s = new Scanner(new File("planetes.properties"))) {
 	        while (s.hasNextLine()) {
 	            String fullLine = s.nextLine();
 	            String[] expArray = fullLine.split("(=)");
-	            hmap.put(expArray[0], expArray[1]);
+	            hmapPlanets.put(expArray[0], expArray[1]);
 	        }
 	    } catch (FileNotFoundException e) {
 	        e.printStackTrace();
