@@ -1,5 +1,9 @@
 package model;
 
+import java.util.HashMap;
+
+import util.Utilitaires;
+
 public class Vaisseaux {
 	
 	String type;
@@ -16,6 +20,10 @@ public class Vaisseaux {
 		this.type = type;
 		this.nbrPassagers = 0;
 		position = "Terre";
+		HashMap<String, Integer> hmap = Utilitaires.findVaisseauxProperties(type);
+		this.capacite = Integer.valueOf(hmap.get("Capacitetransport"));
+		this.consommation = Integer.valueOf(hmap.get("Consommation"));
+		this.coutCreation = Integer.valueOf(hmap.get("CoutCreation"));
 
 	}
 

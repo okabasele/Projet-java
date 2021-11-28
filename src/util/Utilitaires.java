@@ -23,9 +23,32 @@ public class Utilitaires {
 	    }
 	}
 	
+	
 	public static HashMap<String,String> findPlanetesProperties(String toFind) {
 		HashMap<String,String> properties = new HashMap<String,String>();
 	    for (Entry<String, String> entry : Menu.hmapPlanets.entrySet()) {
+	    	if (entry.getKey().startsWith(toFind)) {
+	    		properties.put(entry.getKey().substring(toFind.length()), entry.getValue());
+	    	}
+	    }
+	    return properties;
+	}
+	
+	public static void fillHashMapVaisseaux() {
+		try (Scanner s = new Scanner(new File("vaisseaux.properties"))) {
+	        while (s.hasNextLine()) {
+	            String fullLine = s.nextLine();
+	            String[] expArray = fullLine.split("(=)");
+	            Menu.hmapVaisseaux.put(expArray[0], Integer.valueOf(expArray[1]));
+	        }
+	    } catch (FileNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	}
+	
+	public static HashMap<String, Integer> findVaisseauxProperties(String toFind) {
+		HashMap<String, Integer> properties = new HashMap<String, Integer>();
+	    for (Entry<String, Integer> entry : Menu.hmapVaisseaux.entrySet()) {
 	    	if (entry.getKey().startsWith(toFind)) {
 	    		properties.put(entry.getKey().substring(toFind.length()), entry.getValue());
 	    	}

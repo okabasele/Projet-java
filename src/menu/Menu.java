@@ -11,6 +11,7 @@ public class Menu {
 	static boolean appliOn = true ;
 	public static int countUC;
 	public static HashMap<String,String> hmapPlanets = new HashMap<String,String>();
+	public static HashMap<String, Integer> hmapVaisseaux = new HashMap<String, Integer>();
 	
 	// Il faudra créer un menu pour créer des vaisseaux
 	// charger les vaisseaux en voyageur 
