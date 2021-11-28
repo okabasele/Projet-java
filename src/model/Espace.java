@@ -11,7 +11,8 @@ public class Espace {
 
 	public Espace() {
 		super();
-		Utilitaires.fillHashMapPlanets();;
+		Utilitaires.fillHashMapPlanets();
+		Utilitaires.fillHashMapVaisseaux();
 		initArrayListPlanets();
 	}
 	

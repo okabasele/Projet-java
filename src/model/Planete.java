@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import util.Utilitaires;
@@ -10,7 +11,17 @@ public class Planete {
 	int distanceTerre;
 	int capaciteAccueil;
 	int popDepart;
+	ArrayList<Vaisseaux> ships = new ArrayList<Vaisseaux>();
 	
+	
+	public ArrayList<Vaisseaux> getShips() {
+		return ships;
+	}
+
+	public void setShips(ArrayList<Vaisseaux> ships) {
+		this.ships = ships;
+	}
+
 	public Planete(String nom) {
 		super();
 		this.nom = nom;

@@ -3,6 +3,7 @@ package menu;
 import java.util.HashMap;
 
 import util.Utilitaires;
+import model.Cargo;
 import model.Espace;
 
 public class Menu {
@@ -58,6 +59,9 @@ public class Menu {
 		case 1:
 			//creer un vaisseau
 			//l'ajouter dans l'arraylist de vaisseaux de la Terre
+			Cargo c =new Cargo();
+			Espace.alPlanets.get(2).setShips(Espace.alPlanets.get(2).getShips().add(c));
+			
 			break;
 		case 2:
 			

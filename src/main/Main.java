@@ -1,6 +1,8 @@
 package main;
 
+import menu.Menu;
 import menu.TextConst;
+import model.Cargo;
 import model.Espace;
 import util.Utilitaires;
 public class Main {
@@ -9,8 +11,6 @@ public class Main {
 		
 		Espace e = new Espace();
 		e.initApp();
-		
-		//e.readAlPlanets();
 		
 		
 	}

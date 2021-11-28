@@ -10,8 +10,8 @@ public class Fusee extends Vaisseaux {
 	int Cout_creation = 0 ;
 	
 	
-	public Fusee(String type) {
-		super(type);
+	public Fusee() {
+		super();
 	}
 
 

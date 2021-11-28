@@ -15,15 +15,15 @@ public class Vaisseaux {
 	int coutCreation;
 	
 	
-	public Vaisseaux(String type) {
+	public Vaisseaux() {
 		super();
-		this.type = type;
+		this.type= this.getClass().getSimpleName().toLowerCase();
 		this.nbrPassagers = 0;
 		position = "Terre";
 		HashMap<String, Integer> hmap = Utilitaires.findVaisseauxProperties(type);
-		this.capacite = Integer.valueOf(hmap.get("Capacitetransport"));
-		this.consommation = Integer.valueOf(hmap.get("Consommation"));
-		this.coutCreation = Integer.valueOf(hmap.get("CoutCreation"));
+		this.capacite = hmap.get("CapaciteTransport");
+		this.consommation = hmap.get("Consomation");
+		this.coutCreation = hmap.get("CoutCreation");
 
 	}
 

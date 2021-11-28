@@ -49,9 +49,13 @@ public class Utilitaires {
 	public static HashMap<String, Integer> findVaisseauxProperties(String toFind) {
 		HashMap<String, Integer> properties = new HashMap<String, Integer>();
 	    for (Entry<String, Integer> entry : Menu.hmapVaisseaux.entrySet()) {
+	 
 	    	if (entry.getKey().startsWith(toFind)) {
 	    		properties.put(entry.getKey().substring(toFind.length()), entry.getValue());
+	    		
+	 
 	    	}
+	    	
 	    }
 	    return properties;
 	}
