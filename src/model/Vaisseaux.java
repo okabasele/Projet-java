@@ -3,21 +3,20 @@ package model;
 public class Vaisseaux {
 	
 	String type;
-	int Nbr_passagers = 0 ;
-	int Position = 0 ;
-	int Capacite = 0;
-	int Consommation = 0;
-	int Cout_creation = 0 ;
+	String position;
+	int nbrPassagers;
+	
+	int capacite;
+	int consommation;
+	int coutCreation;
 	
 	
-	public Vaisseaux(String type, int nbr_passagers, int position, int capacite, int consommation, int cout_creation) {
+	public Vaisseaux(String type) {
 		super();
 		this.type = type;
-		Nbr_passagers = nbr_passagers;
-		Position = position;
-		Capacite = capacite;
-		Consommation = consommation;
-		Cout_creation = cout_creation;
+		this.nbrPassagers = 0;
+		position = "Terre";
+
 	}
 
 
@@ -31,60 +30,63 @@ public class Vaisseaux {
 	}
 
 
-	public int getNbr_passagers() {
-		return Nbr_passagers;
+	public int getnbrPassagers() {
+		return nbrPassagers;
 	}
 
 
-	public void setNbr_passagers(int nbr_passagers) {
-		Nbr_passagers = nbr_passagers;
+	public void setnbrPassagers(int nbrPassagers) {
+		nbrPassagers = nbrPassagers;
 	}
 
 
-	public int getPosition() {
-		return Position;
+
+
+
+	public String getposition() {
+		return position;
 	}
 
 
-	public void setPosition(int position) {
-		Position = position;
+	public void setposition(String position) {
+		position = position;
 	}
 
 
-	public int getCapacite() {
-		return Capacite;
+	public int getcapacite() {
+		return capacite;
 	}
 
 
-	public void setCapacite(int capacite) {
-		Capacite = capacite;
+	public void setcapacite(int capacite) {
+		capacite = capacite;
 	}
 
 
-	public int getConsommation() {
-		return Consommation;
+	public int getconsommation() {
+		return consommation;
 	}
 
 
-	public void setConsommation(int consommation) {
-		Consommation = consommation;
+	public void setconsommation(int consommation) {
+		consommation = consommation;
 	}
 
 
-	public int getCout_creation() {
-		return Cout_creation;
+	public int getcoutCreation() {
+		return coutCreation;
 	}
 
 
-	public void setCout_creation(int cout_creation) {
-		Cout_creation = cout_creation;
+	public void setcoutCreation(int coutCreation) {
+		coutCreation = coutCreation;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Vaisseaux [type=" + type + ", Nbr_passagers=" + Nbr_passagers + ", Position=" + Position + ", Capacite="
-				+ Capacite + ", Consommation=" + Consommation + ", Cout_creation=" + Cout_creation + "]";
+		return "Vaisseaux [type=" + type + ", nbrPassagers=" + nbrPassagers + ", position=" + position + ", capacite="
+				+ capacite + ", consommation=" + consommation + ", coutCreation=" + coutCreation + "]";
 	}
 	
 	

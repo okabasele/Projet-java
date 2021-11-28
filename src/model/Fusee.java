@@ -10,14 +10,8 @@ public class Fusee extends Vaisseaux {
 	int Cout_creation = 0 ;
 	
 	
-	public Fusee(String type, int nbr_passagers, int position, int capacite, int consommation, int cout_creation) {
-		super(type, nbr_passagers , position, capacite, consommation , cout_creation);
-		this.type = type;
-		Nbr_passagers = nbr_passagers;
-		Position = position;
-		Capacite = capacite;
-		Consommation = consommation;
-		Cout_creation = cout_creation;
+	public Fusee(String type) {
+		super(type);
 	}
 
 
