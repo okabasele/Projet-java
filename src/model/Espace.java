@@ -2,11 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+import menu.Menu;
 import util.Utilitaires;
 public class Espace {
 
 	
-	ArrayList<Planete> alPlanets = new ArrayList<Planete>();
+	public static ArrayList<Planete> alPlanets = new ArrayList<Planete>();
 
 	public Espace() {
 		super();
@@ -14,16 +15,20 @@ public class Espace {
 		initArrayListPlanets();
 	}
 	
+	public void initApp() {
+		Menu.menuPrincipal();
+	}
+	
 	void initArrayListPlanets() {
-		this.alPlanets.add(new Planete("Mercure"));
-		this.alPlanets.add(new Planete("Venus"));
-		this.alPlanets.add(new Planete("Terre"));
-		this.alPlanets.add(new Planete("Mars"));
-		this.alPlanets.add(new Planete("Jupiter"));
-		this.alPlanets.add(new Planete("Saturne"));
-		this.alPlanets.add(new Planete("Uranus"));
-		this.alPlanets.add(new Planete("Neptune"));
-		this.alPlanets.add(new Planete("Pluton"));
+		alPlanets.add(new Planete("Mercure"));
+		alPlanets.add(new Planete("Venus"));
+		alPlanets.add(new Planete("Terre"));
+		alPlanets.add(new Planete("Mars"));
+		alPlanets.add(new Planete("Jupiter"));
+		alPlanets.add(new Planete("Saturne"));
+		alPlanets.add(new Planete("Uranus"));
+		alPlanets.add(new Planete("Neptune"));
+		alPlanets.add(new Planete("Pluton"));
 	}
 	
 	public void readAlPlanets() {
