@@ -3,8 +3,11 @@ package util;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
@@ -226,12 +229,36 @@ public class Utilitaires {
 	
 	public static void writeDataInFile(String strToWrite) {
 		BufferedWriter writer = null;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		String now = dateFormat.format(new Date());
 		try {
-			writer = new BufferedWriter(new FileWriter("./output.txt"));
-		      writer.write(strToWrite);  //pour ajouter : writer.append(strToWrite);
+			writer = new BufferedWriter(new FileWriter("./output.txt",true));
+		      writer.write(now +" : "+ strToWrite+"\n");  //pour ajouter : writer.append(strToWrite);
 		      writer.close();
 		} catch (IOException e) {
 			      e.printStackTrace();
+		}
+	}
+	
+	public static void deleteAllDataFromFile() {
+		FileOutputStream writer = null;
+		try {
+			writer = new FileOutputStream("./output.txt");
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			writer.write(("").getBytes());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

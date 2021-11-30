@@ -14,6 +14,7 @@ public class Espace {
 		Utilitaires.fillHashMapPlanets();
 		Utilitaires.fillHashMapVaisseaux();
 		initArrayListPlanets();
+		Utilitaires.deleteAllDataFromFile();
 	}
 	
 	public void initApp() {
