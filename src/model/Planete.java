@@ -67,9 +67,10 @@ public class Planete {
 	@Override
 	public String toString() {
 		return "Planete [nom=" + nom + ", distanceTerre=" + distanceTerre + ", capaciteAccueil=" + capaciteAccueil
-				+ ", popDepart=" + popDepart + "]";
+				+ ", popDepart=" + popDepart + ", ships=" + ships + "]";
 	}
-	
+
+
 	
 	
 	

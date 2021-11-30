@@ -9,14 +9,16 @@ public class Vaisseaux {
 	String type;
 	String position;
 	int nbrPassagers;
+	int id;
 	
 	int capacite;
 	int consommation;
 	int coutCreation;
 	
 	
-	public Vaisseaux() {
+	public Vaisseaux(int id) {
 		super();
+		this.id=id;
 		this.type= this.getClass().getSimpleName().toLowerCase();
 		this.nbrPassagers = 0;
 		position = "Terre";
@@ -28,9 +30,11 @@ public class Vaisseaux {
 	}
 
 
+
 	public String getType() {
 		return type;
 	}
+
 
 
 	public void setType(String type) {
@@ -38,65 +42,88 @@ public class Vaisseaux {
 	}
 
 
-	public int getnbrPassagers() {
-		return nbrPassagers;
-	}
 
-
-	public void setnbrPassagers(int nbrPassagers) {
-		nbrPassagers = nbrPassagers;
-	}
-
-
-
-
-
-	public String getposition() {
+	public String getPosition() {
 		return position;
 	}
 
 
-	public void setposition(String position) {
-		position = position;
+
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
 
-	public int getcapacite() {
+
+	public int getNbrPassagers() {
+		return nbrPassagers;
+	}
+
+
+
+	public void setNbrPassagers(int nbrPassagers) {
+		this.nbrPassagers = nbrPassagers;
+	}
+
+
+
+	public int getCapacite() {
 		return capacite;
 	}
 
 
-	public void setcapacite(int capacite) {
-		capacite = capacite;
+
+	public void setCapacite(int capacite) {
+		this.capacite = capacite;
 	}
 
 
-	public int getconsommation() {
+
+	public int getConsommation() {
 		return consommation;
 	}
 
 
-	public void setconsommation(int consommation) {
-		consommation = consommation;
+
+	public void setConsommation(int consommation) {
+		this.consommation = consommation;
 	}
 
 
-	public int getcoutCreation() {
+
+	public int getCoutCreation() {
 		return coutCreation;
 	}
 
 
-	public void setcoutCreation(int coutCreation) {
-		coutCreation = coutCreation;
+
+	public void setCoutCreation(int coutCreation) {
+		this.coutCreation = coutCreation;
 	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 
 	@Override
 	public String toString() {
-		return "Vaisseaux [type=" + type + ", nbrPassagers=" + nbrPassagers + ", position=" + position + ", capacite="
-				+ capacite + ", consommation=" + consommation + ", coutCreation=" + coutCreation + "]";
+		return "Vaisseaux [type=" + type + ", id=" + id +", position=" + position + ", nbrPassagers=" + nbrPassagers
+				+ ", capacite=" + capacite + ", consommation=" + consommation + ", coutCreation=" + coutCreation + "]";
 	}
-	
+
+
+
+
 	
 
 	

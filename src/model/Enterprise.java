@@ -3,8 +3,8 @@ package model;
 public class Enterprise extends Vaisseaux {
 	
 	
-	public Enterprise() {
-		super();
+	public Enterprise(int id) {
+		super(id);
 	}
 
 	

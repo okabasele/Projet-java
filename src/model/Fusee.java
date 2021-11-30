@@ -10,8 +10,8 @@ public class Fusee extends Vaisseaux {
 	int Cout_creation = 0 ;
 	
 	
-	public Fusee() {
-		super();
+	public Fusee(int id) {
+		super(id);
 	}
 
 

@@ -1,18 +1,14 @@
 package main;
 
-import menu.Menu;
-import menu.TextConst;
-import model.Cargo;
 import model.Espace;
-import util.Utilitaires;
+
 public class Main {
 
 	public static void main(String[] args) {
 		
-		Espace e = new Espace();
-		e.initApp();
-		
+		Espace espace = new Espace();
+		espace.initApp();
 		
 	}
-
+	
 }

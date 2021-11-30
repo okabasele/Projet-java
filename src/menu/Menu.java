@@ -1,27 +1,39 @@
 package menu;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import util.Utilitaires;
 import model.Cargo;
+import model.Enterprise;
 import model.Espace;
+import model.Fusee;
+import model.Navette;
+import model.Planete;
+import model.Vaisseaux;
 
 public class Menu {
 
 	//Les variables propres a l'application
 	static boolean appliOn = true ;
-	public static int countUC;
+	public static int countUC = 0;
+	public static int nbTour = 1;
 	public static HashMap<String,String> hmapPlanets = new HashMap<String,String>();
 	public static HashMap<String, Integer> hmapVaisseaux = new HashMap<String, Integer>();
+	public static HashMap<Integer,Vaisseaux> hmapShips= new HashMap<Integer,Vaisseaux>();
 	
 	// Il faudra créer un menu pour créer des vaisseaux
 	// charger les vaisseaux en voyageur 
 	//les envoyer et les décharger.
 	
 	public static void menuPrincipal() {
+		System.out.println(TextConst.WELCOME);
 		System.out.println(TextConst.BONJOUR);
 		do {
 			//choose
+			System.out.println("");
+			Utilitaires.subMenuBanner("Tour "+nbTour);
+
 			System.out.println(TextConst.MENUCHOIX);
 			int menu = Utilitaires.readInt();
 			
@@ -47,6 +59,7 @@ public class Menu {
 				System.out.println(TextConst.ERREUR);
 				break;
 			}
+			nbTour++;
 					
 		}while(appliOn);
 	}
@@ -54,23 +67,32 @@ public class Menu {
 	public static void menuCreate() {
 		Utilitaires.menuBannerWithUC(TextConst.MENUCREATE);
 		//CHOISIR LE TYPE DU VAISSEAU
-		int ship = Utilitaires.readInt();
-		switch (ship) {
+		System.out.println(TextConst.MENUCREATECHOIX);
+		int choix = Utilitaires.readInt();
+		int nextAvailableInt = Utilitaires.getNextAvalaibleIntFromSet(hmapShips.keySet());
+		switch (choix) {
 		case 1:
 			//creer un vaisseau
+			Fusee f = new Fusee(nextAvailableInt);
+			//ajouter dans le hashmap qui stocke tout les vaisseaux
+			hmapShips.put(nextAvailableInt,f);
 			//l'ajouter dans l'arraylist de vaisseaux de la Terre
-			Cargo c =new Cargo();
-			Espace.alPlanets.get(2).setShips(Espace.alPlanets.get(2).getShips().add(c));
-			
+			Utilitaires.addShipToPlanet("Terre", f);
 			break;
 		case 2:
-			
+			Navette n = new Navette(nextAvailableInt);
+			hmapShips.put(nextAvailableInt,n);
+			Utilitaires.addShipToPlanet("Terre", n);
 			break;
 		case 3:
-			
+			Cargo c =new Cargo(nextAvailableInt);
+			hmapShips.put(nextAvailableInt,c);
+			Utilitaires.addShipToPlanet("Terre", c);
 			break;
 		case 4:
-			
+			Enterprise e= new Enterprise(nextAvailableInt);
+			hmapShips.put(nextAvailableInt,e);
+			Utilitaires.addShipToPlanet("Terre", e);
 			break;
 		default:
 			System.out.println(TextConst.ERREUR);
@@ -80,10 +102,8 @@ public class Menu {
 	
 	public static void menuRead() {
 		Utilitaires.menuBannerWithUC(TextConst.MENUREAD);
-
-		//VUE SPACIALE
-		//PLANETE Terre : pop restante, nb de vaisseaux
-		//LES PLANETES : pop/capacite, nombre de vaisseaux
+		//LES PLANETES : pop/capacite, ships
+		
 		
 	}
 	
@@ -98,4 +118,9 @@ public class Menu {
 		//DECHARGER LE VAISSEAU A SON ARRIVEE
 		
 	}
+	
+	public static void updateCountUC() {
+		countUC += 1;
+	}
+	
 }
