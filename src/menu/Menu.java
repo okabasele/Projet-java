@@ -2,6 +2,7 @@ package menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import util.Utilitaires;
 import model.Cargo;
@@ -59,6 +60,7 @@ public class Menu {
 				System.out.println(TextConst.ERREUR);
 				break;
 			}
+			isGameCleared();
 			nbTour++;
 					
 		}while(appliOn);
@@ -133,11 +135,72 @@ public class Menu {
 		Utilitaires.menuBannerWithUC(TextConst.MENUUPDATE);
 		
 		//CHOISIR UN VAISSEAU
-		//LE CHARGER EN VOYAGEUR
-		// CHOISIR LA DESTINATION DU VAISSEAU ET L'ENVOYER
-		//DECHARGER LE VAISSEAU A SON ARRIVEE
+		 System.out.println("Choisissez un vaisseau");
+		 for (Entry<Integer, Vaisseaux> entry : hmapShips.entrySet()) {
+                 System.out.println(entry.getKey() +":"+ entry.getValue());
+         }
+		  int choix =  Utilitaires.readInt();
+		  if(hmapShips.containsKey(choix)) {
+			//LE CHARGER EN VOYAGEUR
+			
+			//DECHARGER LE VAISSEAU A SON ARRIVEE
+			  Vaisseaux ship =hmapShips.get(choix);
+			  Planete depart = Utilitaires.getPlanetByName(ship.getPosition());
+			  if(depart.getPopDepart()-ship.getCapacite()>=0) {
+				  ship.setNbrPassagers(ship.getCapacite());
+			  }else {
+				  ship.setNbrPassagers(depart.getPopDepart());
+			  }
+		      Utilitaires.setPopulationPlanet(ship.getPosition(), -ship.getNbrPassagers());
+		      depart.getShips().remove(ship);
+		      Utilitaires.writeDataInFile("Le vaisseau ("+ship.getType()+", id="+ ship.getId()+") a quitté la planète "+ship.getPosition()+ "avec "+ship.getNbrPassagers()+" a bord.");
+	            System.out.println("Le vaisseau ("+ship.getType()+", id="+ ship.getId()+") a quitté la planète "+ship.getPosition()+ "avec "+ship.getNbrPassagers()+" a bord.");
+	            Utilitaires.updateCountUC();
+		   // CHOISIR LA DESTINATION DU VAISSEAU ET L'ENVOYER
+		      System.out.println("choisissez la destination du vaisseau");
+			  for(Planete planete : alPlanets) {
+				  System.out.println(planete.getNom());
+			  }
+			  boolean shipNotInPlanet = true; 
+			  do {
+				  
+				  String destination = Utilitaires.saisieString();
+				  Planete p = Utilitaires.getPlanetByName(destination); 
+				  if(alPlanets.contains(p)) {
+					  
+					  if(p.getPopDepart()+ship.getNbrPassagers()<=p.getCapaciteAccueil()) {
+						  Utilitaires.addShipToPlanet(p.getNom(),ship);
+						  Utilitaires.setPopulationPlanet(ship.getPosition(), ship.getNbrPassagers());
+						  Utilitaires.writeDataInFile("Les "+ship.getNbrPassagers()+" passagers du vaisseau ( "+ship.getType()+", id="+ ship.getId()+") ont embarqué sur la planete"+ship.getPosition());
+				            System.out.println("Les "+ship.getNbrPassagers()+" passagers du vaisseau ( "+ship.getType()+", id="+ ship.getId()+") ont embarqué sur la planete"+ship.getPosition());
+				           Utilitaires.updateCountUC();
+						  ship.setNbrPassagers(0);
+						  shipNotInPlanet = false;
+						  
+					  }
+				  }
+				  if(shipNotInPlanet) {
+					  System.out.println("Veuillez réessayer s'il vous plaît");
+				  }
+			  }while(shipNotInPlanet);
+			  
+		  }else {
+			  System.out.println(TextConst.ERREUR);
+		  }
+		  
+		  
+		
+		
 		
 	}
+	
+	 public static void isGameCleared() {
+	        if(Utilitaires.getPlanetByName("Terre").getPopDepart() == 0) {
+	        	System.out.println("Félicitations!!");
+	        	System.out.println(" Il n'y a plus personnes sur Terre");
+	            appliOn=false;
+	        }
+	    }
 	
 
 }

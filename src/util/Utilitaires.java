@@ -207,6 +207,43 @@ public class Utilitaires {
 		Menu.countUC += 1;
 	}
 	
+	public static Planete getPlanetByName(String planetName) {
+
+        switch(planetName) {
+        case "Mercure":
+            Planete merc = Menu.alPlanets.get(0);
+            return merc;
+        case "Venus":
+            Planete venus = Menu.alPlanets.get(1);
+            return venus;
+        case "Terre":
+            Planete terre = Menu.alPlanets.get(2);
+            return terre;
+        case "Mars":
+            Planete mars = Menu.alPlanets.get(3);
+            return mars;
+        case "Jupiter":
+            Planete jupt = Menu.alPlanets.get(4);
+            return jupt;
+        case "Saturne":
+            Planete sat = Menu.alPlanets.get(5);
+            return sat;
+        case "Uranus":
+            Planete ur = Menu.alPlanets.get(6);
+            return ur;
+        case "Neptune":
+            Planete nep = Menu.alPlanets.get(7);
+            return nep;
+        case "Pluton":
+            Planete plu = Menu.alPlanets.get(8);
+            return plu;
+        default: 
+            System.out.println(TextConst.ERREUR);
+            break;
+        }
+return null;
+    }
+	
 
 	
 	public static int readInt() {
@@ -239,6 +276,51 @@ public class Utilitaires {
 		}
 		return s;
 	}
+	
+	public static void setPopulationPlanet(String planetName, int pop) {
+
+        switch(planetName) {
+        case "Mercure":
+            Planete merc = Menu.alPlanets.get(0);
+            merc.setPopDepart(merc.getPopDepart()+pop);
+            break;
+        case "Venus":
+            Planete venus = Menu.alPlanets.get(1);
+            venus.setPopDepart(venus.getPopDepart()+pop);
+            break;
+        case "Terre":
+            Planete terre = Menu.alPlanets.get(2);
+            terre.setPopDepart(terre.getPopDepart()+pop);
+            break;
+        case "Mars":
+            Planete mars = Menu.alPlanets.get(3);
+            mars.setPopDepart(mars.getPopDepart()+pop);
+            break;
+        case "Jupiter":
+            Planete jupt = Menu.alPlanets.get(4);
+            jupt.setPopDepart(jupt.getPopDepart()+pop);
+            break;
+        case "Saturne":
+            Planete sat = Menu.alPlanets.get(5);
+            sat.setPopDepart(sat.getPopDepart()+pop);
+            break;
+        case "Uranus":
+            Planete ur = Menu.alPlanets.get(6);
+            ur.setPopDepart(ur.getPopDepart()+pop);
+            break;
+        case "Neptune":
+            Planete nep = Menu.alPlanets.get(7);
+            nep.setPopDepart(nep.getPopDepart()+pop);
+            break;
+        case "Pluton":
+            Planete plu = Menu.alPlanets.get(8);
+            plu.setPopDepart(plu.getPopDepart()+pop);
+            break;
+        default: 
+            System.out.println(TextConst.ERREUR);
+            break;
+        }
+    }
 	
 
 	public static void loadingBar(String anim) {
