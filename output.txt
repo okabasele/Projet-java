@@ -1,1 +1,0 @@
-Un vaisseau (type=cargo, id=2) a été ajouté à la planète Terre
