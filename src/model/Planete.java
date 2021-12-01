@@ -17,7 +17,16 @@ public class Planete {
 	public ArrayList<Vaisseaux> getShips() {
 		return ships;
 	}
-
+	
+	public ArrayList<String> getShipsFormat() {
+		ArrayList<String> res = new ArrayList<String>();
+		for (Vaisseaux vaisseau : ships) {
+			res.add("(" + vaisseau.getType()+ ", " + vaisseau.getNbrPassagers()+"/"+vaisseau.getCapacite()+") : "+vaisseau.getId());
+		}
+		return res;
+		
+	}
+	
 	public void setShips(ArrayList<Vaisseaux> ships) {
 		this.ships = ships;
 	}

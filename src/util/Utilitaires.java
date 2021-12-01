@@ -71,6 +71,25 @@ public class Utilitaires {
 	    return properties;
 	}
 	
+	public static void initArrayListPlanets() {
+		Menu.alPlanets.add(new Planete("Mercure"));
+		Menu.alPlanets.add(new Planete("Venus"));
+		Menu.alPlanets.add(new Planete("Terre"));
+		Menu.alPlanets.add(new Planete("Mars"));
+		Menu.alPlanets.add(new Planete("Jupiter"));
+		Menu.alPlanets.add(new Planete("Saturne"));
+		Menu.alPlanets.add(new Planete("Uranus"));
+		Menu.alPlanets.add(new Planete("Neptune"));
+		Menu.alPlanets.add(new Planete("Pluton"));
+	}
+	
+	public static void readAlPlanets() {
+		for (Planete p : Menu.alPlanets) {
+			System.out.println(p.toString());
+		}
+	}
+	
+	
 	public static void menuBannerWithUC(String menuBan) {
 		String fmt = "%1$20s %2$20s%n";
 		String uc = String.valueOf(Menu.countUC)+"UC";
@@ -90,75 +109,102 @@ public class Utilitaires {
 		switch(planetName) {
 		case "Mercure":
 			ship.setPosition(planetName);
-			Planete merc = Espace.alPlanets.get(0);
+			Planete merc = Menu.alPlanets.get(0);
 			merc.getShips().add(ship);
-			Espace.alPlanets.set(0, merc);
+			Menu.alPlanets.set(0, merc);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Venus":
 			ship.setPosition(planetName);
-			Planete venus = Espace.alPlanets.get(1);
+			Planete venus = Menu.alPlanets.get(1);
 			venus.getShips().add(ship);
-			Espace.alPlanets.set(1, venus);
+			Menu.alPlanets.set(1, venus);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Terre":
 			ship.setPosition(planetName);
-			Planete Terre = Espace.alPlanets.get(2);
+			Planete Terre = Menu.alPlanets.get(2);
 			Terre.getShips().add(ship);
-			Espace.alPlanets.set(2, Terre);
-			Menu.updateCountUC();
+			Menu.alPlanets.set(2, Terre);
+			updateCountUC();
 			loadingBar(TextConst.LOADINGBAR);
 			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			break;
 		case "Mars":
 			ship.setPosition(planetName);
-			Planete mars = Espace.alPlanets.get(3);
+			Planete mars = Menu.alPlanets.get(3);
 			mars.getShips().add(ship);
-			Espace.alPlanets.set(3, mars);
-			
+			Menu.alPlanets.set(3, mars);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Jupiter":
 			ship.setPosition(planetName);
-			Planete jupt = Espace.alPlanets.get(4);
+			Planete jupt = Menu.alPlanets.get(4);
 			jupt.getShips().add(ship);
-			Espace.alPlanets.set(4, jupt);
+			Menu.alPlanets.set(4, jupt);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Saturne":
 			ship.setPosition(planetName);
-			Planete sat = Espace.alPlanets.get(5);
+			Planete sat = Menu.alPlanets.get(5);
 			sat.getShips().add(ship);
-			Espace.alPlanets.set(5, sat);
+			Menu.alPlanets.set(5, sat);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Uranus":
 			ship.setPosition(planetName);
-			Planete ur = Espace.alPlanets.get(6);
+			Planete ur = Menu.alPlanets.get(6);
 			ur.getShips().add(ship);
-			Espace.alPlanets.set(6, ur);
+			Menu.alPlanets.set(6, ur);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Neptune":
 			ship.setPosition(planetName);
-			Planete nep = Espace.alPlanets.get(7);
+			Planete nep = Menu.alPlanets.get(7);
 			nep.getShips().add(ship);
-			Espace.alPlanets.set(7, nep);
+			Menu.alPlanets.set(7, nep);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
 		case "Pluton":
 			ship.setPosition(planetName);
-			Planete plu = Espace.alPlanets.get(8);
+			Planete plu = Menu.alPlanets.get(8);
 			plu.getShips().add(ship);
-			Espace.alPlanets.set(8, plu);
+			Menu.alPlanets.set(8, plu);
+			updateCountUC();
+			loadingBar(TextConst.LOADINGBAR);
+			writeDataInFile("Un vaisseau (type="+ship.getType()+", id="+ ship.getId()+ ") a été ajouté à la planète "+planetName);
 			System.out.println("Un vaisseau ("+ship.getType()+") a été ajouté à la planète "+planetName);
 			break;
-			default: 
+		default: 
 			System.out.println(TextConst.ERREUR);
 			break;
 		}
+	}
+	
+	public static void updateCountUC() {
+		Menu.countUC += 1;
 	}
 	
 

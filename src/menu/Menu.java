@@ -6,7 +6,6 @@ import java.util.HashMap;
 import util.Utilitaires;
 import model.Cargo;
 import model.Enterprise;
-import model.Espace;
 import model.Fusee;
 import model.Navette;
 import model.Planete;
@@ -20,8 +19,9 @@ public class Menu {
 	public static int nbTour = 1;
 	public static HashMap<String,String> hmapPlanets = new HashMap<String,String>();
 	public static HashMap<String, Integer> hmapVaisseaux = new HashMap<String, Integer>();
-	public static HashMap<Integer,Vaisseaux> hmapShips= new HashMap<Integer,Vaisseaux>();
 	
+	public static HashMap<Integer,Vaisseaux> hmapShips= new HashMap<Integer,Vaisseaux>();
+	public static ArrayList<Planete> alPlanets = new ArrayList<Planete>();
 	// Il faudra créer un menu pour créer des vaisseaux
 	// charger les vaisseaux en voyageur 
 	//les envoyer et les décharger.
@@ -103,8 +103,28 @@ public class Menu {
 	public static void menuRead() {
 		Utilitaires.menuBannerWithUC(TextConst.MENUREAD);
 		//LES PLANETES : pop/capacite, ships
-		
-		
+		String fmt = "|%1$10s|%2$30s|%3$30s|%4$36s|%n";
+		System.out.format(" %1$10s %2$30s %3$20s %4$20s%n", "__________","______________________________","______________________________","____________________________________");
+		System.out.format("| %1$7s  |%2$30s|%3$30s|          %4$16s          |%n", "Planete","Distance Terre ","Population/Capacité d'acceuil","Vaisseaux a bord");
+		System.out.format("| %1$7s  |%2$30s|%3$30s|  %4$16s   |%n", "","(UA)","","(type, passagers/capacite) : id");
+		System.out.format(fmt, "__________","______________________________","______________________________","____________________________________");
+		for (Planete planet : alPlanets) {
+			
+			if (planet.getShips().size() != 0) {
+				for(String ship : planet.getShipsFormat())
+				if (ship.equals(planet.getShipsFormat().get(0))) {
+					System.out.format(fmt,planet.getNom(),planet.getDistanceTerre(),planet.getPopDepart()+"/"+planet.getCapaciteAccueil(),ship);
+				} else {
+					System.out.format(fmt,"","","",ship);
+				}
+			} else {
+
+				System.out.format(fmt,planet.getNom(),planet.getDistanceTerre(),planet.getPopDepart()+"/"+planet.getCapaciteAccueil(),"");
+			}
+
+		}
+		System.out.format("|%1$10s|%2$30s|%3$20s|%4$20s|%n", "__________","______________________________","______________________________","____________________________________");
+
 	}
 	
 
@@ -119,8 +139,5 @@ public class Menu {
 		
 	}
 	
-	public static void updateCountUC() {
-		countUC += 1;
-	}
-	
+
 }
